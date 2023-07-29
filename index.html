@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasty Bites</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta name="description" content="Tasty Bites is a restaurant that offers a variety of dishes.">
+  <meta name="keywords" content="Tasty Bites, restaurant, food, dishes, menu, order, delivery, payment">
+  <meta name="author" content="Afrizal Mufriz Fouji">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>TastyBites</h1>
+      <p>
+        Buy 3 different items and <span>get 10% Meal Deal discount</span> your order
+      </p>
+    </div>
+  </header>
+  <main>
+    <section>
+      <div class="container">
+        <div id="menu">
+          <!-- Menu items will be rendered here -->
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="title hidden">
+          <h1 class="order-title">Your Order</h1>
+        </div>
+        <div id="order-process"></div>
+        <div id="order-summary">
+          <!-- Order summary will be rendered here -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="payment-modal" class="modal hidden">
+    <button class="close-btn" data-close-Modal="close-Modal">X</button>
+    <form id="form-card">
+      <h3>Enter card details</h3>
+
+      <label for="buyer-name">Name on card</label>
+      <input type="text" id="buyer-name" pattern="[a-zA-Z][a-zA-Z\s]+" placeholder="Enter your name" required
+        title="Only letters (and spaces) are allowed!" oninvalid="this.setCustomValidity('Enter your name, please!')"
+        oninput="setCustomValidity('')" />
+
+      <label for="card-number">Card number</label>
+      <input type="text" id="card-number" pattern="[0-9\s]{19,19}" minlength="16" maxlength="19"
+        placeholder="0000 0000 0000 0000" required title="16-19 digits. Only digits are allowed! (no spaces)"
+        oninvalid="this.setCustomValidity('Enter your card number, please!')" oninput="setCustomValidity('')" />
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="CVV" pattern="\d*" minlength="3" maxlength="3" placeholder="XXX" required
+        title="The CVV code is on the back of your credit/debit card. Only digits are allowed!"
+        oninvalid="this.setCustomValidity('Enter your card CVV, please!')" oninput="setCustomValidity('')" />
+
+      <button type="submit" class="pay-btn" name="pay" data-pay="pay">
+        Pay
+      </button>
+    </form>
+  </div>
+
+  <div class="hidden overlay"></div>
+
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
